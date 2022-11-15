@@ -15,12 +15,9 @@ app.use(cors());
 //Lectura y parseo del body
 app.use(express.json());
 
-//Importaciones de las rutas
-import {userRoutes, reservationRoutes} from './routes/index.js';
-
+import {appV1} from './apiVersion/index.js';
 //Uso de las rutas
-app.use('/api/v1/user', userRoutes);
-app.use('/api/v1/reservation', reservationRoutes);
+app.use('/api/v1', appV1);
 
 //Servidor escuchando
 app.listen(process.env.PORT, () => {
